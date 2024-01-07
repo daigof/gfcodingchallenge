@@ -1,0 +1,15 @@
+.modal-styles h3 {
+  font-size: 18px;
+  color: black;
+  margin: 16px 0 0 0;
+}
+
+.modal-styles blockquote {
+  font-size: 16px;
+  font-style: italic;
+  color: black;
+  border: 3px double #bde7b8;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 16px;
+}

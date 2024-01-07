@@ -13,6 +13,8 @@ import { cleanUrl } from "~utils/cleanUrl";
 // Inject styles to the webpage itself
 import "./google.css";
 
+import SearchResultNotification from "~components/SearchResultNotification";
+
 //
 // TESTING: Inject styles into the ShadowDOM
 //
@@ -66,10 +68,12 @@ const CustomSearchResultLink: FC<PlasmoCSUIProps> = ({ anchor }) => {
   }
 
   const websitesUrl = websites.map((w) => cleanUrl(w.url));
+  const anchorUrl = cleanUrl(anchor.element.getAttribute("href"));
 
-  if (websitesUrl.includes(cleanUrl(anchor.element.getAttribute("href")))) {
+  if (websitesUrl.includes(anchorUrl)) {
     anchor.element.classList.add("ext-custom-search-result-bordered-result");
-    return <button>Custom button</button>;
+    const websiteInfo = websites.find((w) => w.url === anchorUrl);
+    return <SearchResultNotification websiteInfo={websiteInfo} />;
   }
 
   return null;
