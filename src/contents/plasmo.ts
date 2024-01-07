@@ -1,11 +1,13 @@
-import type { PlasmoCSConfig } from "plasmo"
+import type { PlasmoCSConfig } from "plasmo";
 
 export const config: PlasmoCSConfig = {
   matches: ["https://www.plasmo.com/*"]
-}
+};
 
 window.addEventListener("load", () => {
-  console.log("content script loaded")
+  console.log("Welcome to Give freely coding challenge Extension!");
+  console.log("This is the content script loaded only in plasmo domain URL");
 
-  document.body.style.background = "pink"
-})
+  console.log("Let's change the background to red");
+  document.body.style.background = "red";
+});

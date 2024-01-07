@@ -1,0 +1,7 @@
+.ext-custom-search-result-bordered-result {
+  /* border color picked from GiveFreely website */
+  border: 3px solid #bde7b8;
+  display: block;
+  border-radius: 8px;
+  padding: 8px;
+}
