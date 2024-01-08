@@ -1,0 +1,45 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 400px;
+}
+
+.animated-container {
+  position: relative;
+  min-height: 150px;
+}
+
+.companies-list,
+.websites-messages {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1s ease-in-out;
+}
+
+.companies-list li {
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hide {
+  opacity: 0;
+  transform: translateX(-150%);
+}
+
+.go-back-btn {
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 12px;
+  background-color: #bde7b8;
+  outline: none;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+}

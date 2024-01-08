@@ -2,13 +2,7 @@ import type { FC } from "react";
 import Modal, { useModal } from "react-minimal-modal";
 
 import { type ApiResultType } from "~background";
-
-import "./SearchResultNotification.css";
-
-import { pickRandomStringFromArray } from "~utils";
-
-// may be useful somewhere else: to extract the type of the array type
-export type Unpacked<T> = T extends (infer U)[] ? U : T;
+import { pickRandomStringFromArray, type Unpacked } from "~utils";
 
 type Props = {
   websiteInfo: Unpacked<ApiResultType>;
@@ -23,6 +17,22 @@ const buttonStyles = {
   height: "50px",
   cursor: "pointer",
   borderRadius: "50%"
+};
+
+const modalTitleStyles = {
+  fontSize: "18px",
+  color: "black",
+  margin: "16px 0 0 0"
+};
+
+const blockquoteStyles = {
+  fontSize: "16px",
+  fontStyle: "italic",
+  color: "black",
+  border: "3px double #bde7b8",
+  borderRadius: "8px",
+  padding: "8px",
+  margin: "16px"
 };
 
 const SearchResultNotification: FC<Props> = ({ websiteInfo }) => {
@@ -43,10 +53,9 @@ const SearchResultNotification: FC<Props> = ({ websiteInfo }) => {
       <Modal
         visible={isVisible}
         toggle={toggle}
-        title={`Search result notification for company: ${websiteInfo.name}`}
-        className="modal-styles">
-        <h3>Message of the day:</h3>
-        <blockquote>
+        title={`Search result notification for company: ${websiteInfo.name}`}>
+        <h3 style={modalTitleStyles}>Message of the day:</h3>
+        <blockquote style={blockquoteStyles}>
           {pickRandomStringFromArray(websiteInfo.messages)}
         </blockquote>
       </Modal>

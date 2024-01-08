@@ -14,3 +14,6 @@ export const getArrayRandomIndex = <T>(arr: T[]) =>
 export const pickRandomStringFromArray = (inputStringArray: string[]) => {
   return inputStringArray[getArrayRandomIndex(inputStringArray)];
 };
+
+// may be useful somewhere else: to extract the type of the array type
+export type Unpacked<T> = T extends (infer U)[] ? U : T;

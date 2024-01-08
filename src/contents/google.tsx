@@ -45,7 +45,7 @@ export const getInlineAnchorList: PlasmoGetInlineAnchorList = async () => {
 
   //
   // Played around over the idea of filtering the list here instead of in the CSUI component below for efficiency
-  // both could work just decided to go with in CSUI filtering for simplicity/readability sake
+  // both could work just decided to go with in CSUI filtering for simplicity/readability sake using the storage hook
   //
   // nodeList.forEach((n) => console.log(n.getAttribute("href")));
   return nodeList;
@@ -58,13 +58,16 @@ const CustomSearchResultLink: FC<PlasmoCSUIProps> = ({ anchor }) => {
     return null;
   }
 
-  const websitesUrl = websites.map((w) => cleanUrl(w.url));
   const anchorUrl = cleanUrl(anchor.element.getAttribute("href"));
 
-  if (websitesUrl.includes(anchorUrl)) {
+  const websiteMatch = websites.find((w) => cleanUrl(w.url) === anchorUrl);
+
+  if (websiteMatch) {
+    // adds class to the search result link
     anchor.element.classList.add("ext-custom-search-result-bordered-result");
-    const websiteInfo = websites.find((w) => w.url === anchorUrl);
-    return <SearchResultNotification websiteInfo={websiteInfo} />;
+
+    // add the Bell notification icon
+    return <SearchResultNotification websiteInfo={websiteMatch} />;
   }
 
   return null;
