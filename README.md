@@ -1,5 +1,14 @@
-# Give Freely Front End Coding Challenge
+# Give Freely Front End Coding Challenge - CUSTOM SOLUTION BY DIEGO FORTES
+- Added `src` folder organization
+- Added `eslint` rules
+- Added `jest` runner: use `pnpm test` to run the tests
+- Personalized new tab screen
+- As part of solution customized CSUI pages and `popup.tsx`
+- As part of solution added the call to the API in the extension `background.ts` and put it in Plasmo storage for efficiency adn reduced calls. Used Plasmo React storage hook.
+- Styles: added many forms of using styles: JS inline objects. Import to global site. Import isolated to CSUI component only. Added `clsx` utility for class managements. 
+- Thought of adding: Cypress isolated component testing and Storybook for component visualization. It would require a bit of configuration to make it not rely in extension lifecylce code like the background run.
 
+# Give Freely Front End Coding Challenge - Original readme section
 Welcome to the Give Freely Front End Engineer Coding Challenge Interview GitHub project!
 
 For this challenge, you will use the this project to create a small extension that modifies the google search page, as well as creating a pop up on a set of pages provided by an API.
