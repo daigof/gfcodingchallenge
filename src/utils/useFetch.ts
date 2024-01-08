@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
+//
+// NOT USED ANYMORE: I started with this but found instances where I needed outsie React context. Besides Storage solution makes it more performant
+//
 const useFetch = <T>(url: string, options: RequestInit) => {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchResult, setFetchResult] = useState<T | null>(null);

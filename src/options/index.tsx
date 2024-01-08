@@ -8,7 +8,7 @@ const IndexOptions = () => {
       }}>
       <h1>Welcome to Give freely coding challenge Extension!</h1>
       <section>
-        This is the <strong>options</strong> content
+        This is the <strong>options</strong> page
       </section>
       <br />
       <footer>Crafted by Fortes Diego</footer>

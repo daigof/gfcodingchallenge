@@ -1,0 +1,12 @@
+.banner-wrapper {
+  background-color: #bde7b8;
+  display: flex;
+  padding: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50px;
+  box-sizing: border-box;
+}

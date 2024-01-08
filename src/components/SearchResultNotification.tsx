@@ -5,6 +5,8 @@ import { type ApiResultType } from "~background";
 
 import "./SearchResultNotification.css";
 
+import { pickRandomStringFromArray } from "~utils";
+
 // may be useful somewhere else: to extract the type of the array type
 export type Unpacked<T> = T extends (infer U)[] ? U : T;
 
@@ -12,32 +14,23 @@ type Props = {
   websiteInfo: Unpacked<ApiResultType>;
 };
 
-function getRandomIndex<T>(arr: T[]): number {
-  return Math.floor(Math.random() * arr.length);
-}
+const buttonStyles = {
+  background: "none",
+  margin: "16px 0",
+  padding: "8px",
+  border: "1px solid #fff",
+  width: "50px",
+  height: "50px",
+  cursor: "pointer",
+  borderRadius: "50%"
+};
 
 const SearchResultNotification: FC<Props> = ({ websiteInfo }) => {
   const { isVisible, toggle } = useModal();
 
-  const pickRandomMessage = (messages: string[]) => {
-    return messages[getRandomIndex(messages)];
-  };
-
   return (
     <>
-      <button
-        type="button"
-        onClick={toggle}
-        style={{
-          background: "none",
-          margin: "16px 0",
-          padding: 8,
-          border: "1px solid #fff",
-          width: 50,
-          height: 50,
-          cursor: "pointer",
-          borderRadius: "50%"
-        }}>
+      <button type="button" onClick={toggle} style={buttonStyles}>
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +46,9 @@ const SearchResultNotification: FC<Props> = ({ websiteInfo }) => {
         title={`Search result notification for company: ${websiteInfo.name}`}
         className="modal-styles">
         <h3>Message of the day:</h3>
-        <blockquote>{pickRandomMessage(websiteInfo.messages)}</blockquote>
+        <blockquote>
+          {pickRandomStringFromArray(websiteInfo.messages)}
+        </blockquote>
       </Modal>
     </>
   );

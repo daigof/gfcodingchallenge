@@ -20,7 +20,11 @@ export type ApiResultType = Array<{
 }>;
 
 export const WEBSITES_DATA = "WEBSITES_DATA";
-async function ss() {
+
+//
+// good old IIFE
+//
+(async function initFn() {
   const storage = new Storage();
   try {
     const response = await fetch(API_URL, REQUEST_OPTIONS);
@@ -32,5 +36,4 @@ async function ss() {
   } catch (error) {
     await storage.set(WEBSITES_DATA, null);
   }
-}
-ss();
+})();

@@ -8,21 +8,12 @@ import type { FC } from "react";
 import { useStorage } from "@plasmohq/storage/hook";
 
 import { WEBSITES_DATA, type ApiResultType } from "~background";
-import { cleanUrl } from "~utils/cleanUrl";
 
 // Inject styles to the webpage itself
 import "./google.css";
 
 import SearchResultNotification from "~components/SearchResultNotification";
-
-//
-// TESTING: Inject styles into the ShadowDOM
-//
-// export const getStyle = () => {
-//   const style = document.createElement("style");
-//   style.textContent = cssText;
-//   return style;
-// };
+import { cleanUrl } from "~utils";
 
 //
 // Google Search Result Page Matcher

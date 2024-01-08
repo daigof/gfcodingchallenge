@@ -4,7 +4,7 @@ import { WEBSITES_DATA, type ApiResultType } from "~background";
 
 const IndexPopup = () => {
   const [websites] = useStorage<ApiResultType>(WEBSITES_DATA);
-  console.log(websites);
+
   if (!websites) {
     return <div>Loading sites...</div>;
   }
